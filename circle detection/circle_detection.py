@@ -10,6 +10,15 @@ while(True):
     gray = cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)
     gray = cv2.medianBlur(gray,5)
 
+    # extract region of interest
+    rows = gray.shape[0]
+
+    # find circles:
+    circles = cv2.HoughCircles(gray,cv2.HOUGH_GRADIENT,1,rows/8,
+                               param1=100,param2=30,
+                               minRadius =1,maxRadius=30)
+    
+
 
 
 
