@@ -25,10 +25,10 @@ while(True):
         for i in circles[0,:]:
             center = (i[0],i[1])
             # Circle centre
-            cv2.circle(frame,center,1,(0,100,100) ,3)
+            cv2.circle(frame,center,1,(0,0,200) ,3)
             #circle outline
             radius = i[2]
-            cv2.circle(frame,center,radius,(255,0,255),3)
+            cv2.circle(frame,center,radius,(000,220,255),3)
 
 
 
