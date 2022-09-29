@@ -18,6 +18,11 @@ while True :
 
     # for loop to check if we have multiple hand
         for handlms in results.multi_hand_landmarks:
+            for id,lm in enumerate(handlms.landmark):
+                #print(id,lm)
+                h,w,c = img.shape
+                cx,cy = int(lm.x*w),int(lm.y*h)
+                print(id,cy,cx)
             mpDraw.draw_landmarks(img,handlms,mpHands.HAND_CONNECTIONS)
     # do frame rate (write FPS)
 
