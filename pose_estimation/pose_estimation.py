@@ -13,13 +13,15 @@ while True:
     success,img = cap.read()
     imgRGB = cv2.cvtColor(img,cv2.COLOR_BGR2RGB)
     result = pose.process(imgRGB)
-    print(result.pose_landmarks)
+    #print(result.pose_landmarks)
     if result.pose_landmarks:
         mpDraw.draw_landmarks(img,result.pose_landmarks,mpPose.POSE_CONNECTIONS)
 
         for id,lm in enumerate(result.pose_landmarks.landmark):
             h,w,c = img.shape
             print(id,lm)
+            cx,cy = int(lm.x * w),int( lm.y * h)
+            cv2.circle(img,(cx,cy),10,(255,0,0),cv2.FILLED)
 
 
 
