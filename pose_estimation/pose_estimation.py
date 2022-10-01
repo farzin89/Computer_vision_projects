@@ -15,7 +15,11 @@ while True:
     result = pose.process(imgRGB)
     print(result.pose_landmarks)
     if result.pose_landmarks:
-        mpDraw.draw_landmarks(img,result.pose_landmarks)
+        mpDraw.draw_landmarks(img,result.pose_landmarks,mpPose.POSE_CONNECTIONS)
+
+        for id,lm in enumerate(result.pose_landmarks.landmark):
+            h,w,c = img.shape
+            print(id,lm)
 
 
 
